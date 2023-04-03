@@ -1,0 +1,27 @@
+//from xiaofei
+//startupMacros/Run Macro
+date='20220803_';
+namepart1='N';
+namepart2=newArray('1','2','3','4','5','6','7','8','9');
+j=1;
+for (i=1; i<=1; i++){
+seriesname=namepart1+namepart2[i-1];
+photoname=date+seriesname;
+open('D:/20220803/'+photoname+'.tif');
+selectWindow(photoname+'.tif');
+run("Rotate... ", "angle=0.27 grid=1 interpolation=Bilinear stack");
+//setTool("rectangle");
+makeRectangle(37, 111, 1710, 221);
+run("Crop");
+setAutoThreshold("Default no-reset");
+//run("Threshold...");
+setThreshold(0, 140);
+setOption("BlackBackground", false);
+run("Convert to Mask", "method=Default background=Light");
+run("Analyze Particles...", "size=100-Infinity display stack");
+dataname='20220803_'+seriesname;
+//saveAs("Tiff", 'C:/Users/xguo2/Desktop/20220803/ImageJ tiff/'+dataname+'_imageJ.tif');
+saveAs("Results",'C:/Users/xguo2/Desktop/20220803/rawdata/'+dataname+'_raw_data.csv');
+run("Clear Results");
+close();
+}
