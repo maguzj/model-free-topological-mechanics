@@ -1,4 +1,6 @@
-# model-free-topological-mechanics
+# Supporting code for "Model-free characterization of topological edge and corner states in mechanical networks"
+
+M. Guzmán, X. Guo, C. Coulais, D. Carpentier, D. Bartolo
 
 This is the repository associated to the article "Model-free characterization of topological edge and corner states in mechanical networks".
 It contains:
